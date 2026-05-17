@@ -8,16 +8,18 @@ class ATM:
             if Cus_pass!=self.password:
                 raise PassError
             print("---Sucessfully Login---")
-            return True
         except PassError:
            print("Incorrect Pin! Please Enter Correct Pin")
-           return False
+           exit()
+            
     def __init__(self,balance=0):
         self.balance=balance
+        
     def deposit(self):
         amount=int(input("Enter your Deposit Amount: "))
         self.balance=amount+self.balance
         print("Deposit Succesfully...")
+        
     def withdraw(self):
         amount=int(input("Enter your withdraw Amount: "))
         if amount>self.balance:
@@ -25,6 +27,7 @@ class ATM:
         else:
             self.balance=self.balance-amount
             print("Withdraw Successfully...")
+            
     def check_balance(self):
         print(f'Current Balance:{self.balance}')
 
